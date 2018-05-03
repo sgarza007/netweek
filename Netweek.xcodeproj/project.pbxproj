@@ -15,6 +15,11 @@
 		2BA31ED6209A582B00B2CC87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA31ED4209A582B00B2CC87 /* LaunchScreen.storyboard */; };
 		2BA31EE1209A582C00B2CC87 /* NetweekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA31EE0209A582C00B2CC87 /* NetweekTests.swift */; };
 		2BA31EEC209A582C00B2CC87 /* NetweekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA31EEB209A582C00B2CC87 /* NetweekUITests.swift */; };
+		4CF83DB9209B9D9200D8FE1E /* BuildingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */; };
+		4CF83DBB209B9DA200D8FE1E /* FloorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DBA209B9DA200D8FE1E /* FloorTableViewController.swift */; };
+		4CF83DBD209B9DC300D8FE1E /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DBC209B9DC300D8FE1E /* RoomTableViewController.swift */; };
+		4CF83DBF209B9DD500D8FE1E /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DBE209B9DD500D8FE1E /* StudentTableViewController.swift */; };
+		4CF83DC1209B9DE400D8FE1E /* StudentOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DC0209B9DE400D8FE1E /* StudentOptionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		2BA31EE7209A582C00B2CC87 /* NetweekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetweekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA31EEB209A582C00B2CC87 /* NetweekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetweekUITests.swift; sourceTree = "<group>"; };
 		2BA31EED209A582C00B2CC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewController.swift; sourceTree = "<group>"; };
+		4CF83DBA209B9DA200D8FE1E /* FloorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorTableViewController.swift; sourceTree = "<group>"; };
+		4CF83DBC209B9DC300D8FE1E /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
+		4CF83DBE209B9DD500D8FE1E /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		4CF83DC0209B9DE400D8FE1E /* StudentOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOptionsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,11 @@
 				2BA31EC8209A582B00B2CC87 /* AppDelegate.swift */,
 				2BA31ECA209A582B00B2CC87 /* ViewController.swift */,
 				2BA31ECC209A582B00B2CC87 /* Main.storyboard */,
+				4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */,
+				4CF83DBA209B9DA200D8FE1E /* FloorTableViewController.swift */,
+				4CF83DBC209B9DC300D8FE1E /* RoomTableViewController.swift */,
+				4CF83DBE209B9DD500D8FE1E /* StudentTableViewController.swift */,
+				4CF83DC0209B9DE400D8FE1E /* StudentOptionsTableViewController.swift */,
 				2BA31ED2209A582B00B2CC87 /* Assets.xcassets */,
 				2BA31ED4209A582B00B2CC87 /* LaunchScreen.storyboard */,
 				2BA31ED7209A582B00B2CC87 /* Info.plist */,
@@ -262,9 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF83DBD209B9DC300D8FE1E /* RoomTableViewController.swift in Sources */,
+				4CF83DBF209B9DD500D8FE1E /* StudentTableViewController.swift in Sources */,
 				2BA31ECB209A582B00B2CC87 /* ViewController.swift in Sources */,
 				2BA31ED1209A582B00B2CC87 /* Netweek.xcdatamodeld in Sources */,
+				4CF83DC1209B9DE400D8FE1E /* StudentOptionsTableViewController.swift in Sources */,
 				2BA31EC9209A582B00B2CC87 /* AppDelegate.swift in Sources */,
+				4CF83DB9209B9D9200D8FE1E /* BuildingTableViewController.swift in Sources */,
+				4CF83DBB209B9DA200D8FE1E /* FloorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
