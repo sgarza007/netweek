@@ -1,0 +1,6 @@
+framework module Pods_NetweekUITests {
+  umbrella header "Pods-NetweekUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
