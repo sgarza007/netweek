@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class RoomTableViewController: UITableViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,21 @@ class RoomTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-
+    @IBAction func logOut(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+        }
+        catch{
+            print("Error signing out.");
+        }
+        
+        guard (navigationController?.popToRootViewController(animated: true) != nil)
+            else{
+                print("Already at the Root");
+                return
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
