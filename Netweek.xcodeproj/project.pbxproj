@@ -22,6 +22,11 @@
 		2BA31EE1209A582C00B2CC87 /* NetweekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA31EE0209A582C00B2CC87 /* NetweekTests.swift */; };
 		2BA31EEC209A582C00B2CC87 /* NetweekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA31EEB209A582C00B2CC87 /* NetweekUITests.swift */; };
 		2BE70A16209BBF2A00CA888E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BE70A15209BBF2900CA888E /* GoogleService-Info.plist */; };
+		2BFF166A20AB938400A46DCD /* StudentOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF166920AB938400A46DCD /* StudentOptionsViewController.swift */; };
+		2BFF167120AB997700A46DCD /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF166F20AB997700A46DCD /* RoomTableViewCell.swift */; };
+		2BFF167220AB997700A46DCD /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF167020AB997700A46DCD /* RoomTableViewCell.xib */; };
+		2BFF167520ABC93400A46DCD /* BuildingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF167320ABC93400A46DCD /* BuildingTableViewCell.swift */; };
+		2BFF167620ABC93400A46DCD /* BuildingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFF167420ABC93400A46DCD /* BuildingTableViewCell.xib */; };
 		4CF83DB9209B9D9200D8FE1E /* BuildingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */; };
 		4CF83DBB209B9DA200D8FE1E /* FloorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DBA209B9DA200D8FE1E /* FloorTableViewController.swift */; };
 		4CF83DBD209B9DC300D8FE1E /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF83DBC209B9DC300D8FE1E /* RoomTableViewController.swift */; };
@@ -68,6 +73,11 @@
 		2BA31EEB209A582C00B2CC87 /* NetweekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetweekUITests.swift; sourceTree = "<group>"; };
 		2BA31EED209A582C00B2CC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BE70A15209BBF2900CA888E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2BFF166920AB938400A46DCD /* StudentOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOptionsViewController.swift; sourceTree = "<group>"; };
+		2BFF166F20AB997700A46DCD /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		2BFF167020AB997700A46DCD /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		2BFF167320ABC93400A46DCD /* BuildingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewCell.swift; sourceTree = "<group>"; };
+		2BFF167420ABC93400A46DCD /* BuildingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuildingTableViewCell.xib; sourceTree = "<group>"; };
 		39F1506982D79519990B0D2D /* Pods-NetweekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetweekTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetweekTests/Pods-NetweekTests.debug.xcconfig"; sourceTree = "<group>"; };
 		49F403CAB193149C08CEE1E5 /* Pods-NetweekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetweekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetweekTests/Pods-NetweekTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTableViewController.swift; sourceTree = "<group>"; };
@@ -139,11 +149,16 @@
 				2BA31EC8209A582B00B2CC87 /* AppDelegate.swift */,
 				2BA31ECA209A582B00B2CC87 /* ViewController.swift */,
 				2BA31ECC209A582B00B2CC87 /* Main.storyboard */,
+				2BFF167320ABC93400A46DCD /* BuildingTableViewCell.swift */,
+				2BFF167420ABC93400A46DCD /* BuildingTableViewCell.xib */,
+				2BFF166920AB938400A46DCD /* StudentOptionsViewController.swift */,
 				4CF83DB8209B9D9200D8FE1E /* BuildingTableViewController.swift */,
 				4CF83DBA209B9DA200D8FE1E /* FloorTableViewController.swift */,
 				4CF83DBC209B9DC300D8FE1E /* RoomTableViewController.swift */,
 				4CF83DBE209B9DD500D8FE1E /* StudentTableViewController.swift */,
 				4CF83DC0209B9DE400D8FE1E /* StudentOptionsTableViewController.swift */,
+				2BFF166F20AB997700A46DCD /* RoomTableViewCell.swift */,
+				2BFF167020AB997700A46DCD /* RoomTableViewCell.xib */,
 				2BA31ED2209A582B00B2CC87 /* Assets.xcassets */,
 				2BA31ED4209A582B00B2CC87 /* LaunchScreen.storyboard */,
 				2BA31ED7209A582B00B2CC87 /* Info.plist */,
@@ -314,6 +329,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BFF167220AB997700A46DCD /* RoomTableViewCell.xib in Resources */,
+				2BFF167620ABC93400A46DCD /* BuildingTableViewCell.xib in Resources */,
 				2BA31ED6209A582B00B2CC87 /* LaunchScreen.storyboard in Resources */,
 				2BE70A16209BBF2A00CA888E /* GoogleService-Info.plist in Resources */,
 				2BA31ED3209A582B00B2CC87 /* Assets.xcassets in Resources */,
@@ -504,11 +521,14 @@
 				2B0F5BBF209BD23700154317 /* Building.swift in Sources */,
 				2B0F5BC1209BD29100154317 /* Floor.swift in Sources */,
 				4CF83DBF209B9DD500D8FE1E /* StudentTableViewController.swift in Sources */,
+				2BFF167520ABC93400A46DCD /* BuildingTableViewCell.swift in Sources */,
 				2BA31ECB209A582B00B2CC87 /* ViewController.swift in Sources */,
 				2BA31ED1209A582B00B2CC87 /* Netweek.xcdatamodeld in Sources */,
+				2BFF166A20AB938400A46DCD /* StudentOptionsViewController.swift in Sources */,
 				4CF83DC1209B9DE400D8FE1E /* StudentOptionsTableViewController.swift in Sources */,
 				2B0F5BC5209BD2EC00154317 /* Student.swift in Sources */,
 				2BA31EC9209A582B00B2CC87 /* AppDelegate.swift in Sources */,
+				2BFF167120AB997700A46DCD /* RoomTableViewCell.swift in Sources */,
 				4CF83DB9209B9D9200D8FE1E /* BuildingTableViewController.swift in Sources */,
 				4CF83DBB209B9DA200D8FE1E /* FloorTableViewController.swift in Sources */,
 				2B0F5BC3209BD2E200154317 /* Room.swift in Sources */,

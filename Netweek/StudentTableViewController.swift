@@ -9,13 +9,15 @@
 import UIKit
 
 class StudentTableViewController: UITableViewController {
+    
+    var building : Building?
+    var currRoomIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(building?.rooms![currRoomIndex].roommates)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -29,14 +31,27 @@ class StudentTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (building?.rooms![currRoomIndex].roommates!.count)!
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
+        cell.textLabel?.text = building?.rooms![currRoomIndex].roommates![indexPath.row].name
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToStudentOptions", sender: self)
     }
 
+    func retrieveStudentData(forStudent : String){
+        
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

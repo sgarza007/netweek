@@ -9,5 +9,10 @@
 import Foundation
 class Student{
     var name : String?
-    var id : Int?
+    var id : String?
+    var helped = false
+    init(name : String, id: String) {
+        self.name = name
+        self.id = id
+    }
 }

@@ -11,15 +11,19 @@ import Firebase
 
 class RoomTableViewController: UITableViewController {
     
+    var building : Building?
+    var currRoomIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let myNib = UINib(nibName: "RoomTableViewCell", bundle: nil)
+        tableView.register(myNib, forCellReuseIdentifier: "customRoomCell")
+        print(building?.rooms)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,13 +35,55 @@ class RoomTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (building?.rooms?.count)!
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customRoomCell", for: indexPath) as! RoomTableViewCell
+        cell.roomName.text = building?.rooms![indexPath.row].roomNum
+        if (building?.rooms![indexPath.row].status)!{
+            cell.status.image = UIImage(named: "checked")
+        } else {
+            cell.status.image = UIImage(named: "unchecked")
+        }
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currRoomIndex = indexPath.row
+        retrieveRoomData(forRoom: (building?.rooms![currRoomIndex].roomNum)!)
+    }
+    
+    
+    func retrieveRoomData(forRoom : String){
+        print(currRoomIndex)
+        print(building?.rooms)
+        let roomDB = Database.database().reference().child((building?.buildingName)!).child(forRoom)
+        roomDB.observeSingleEvent(of: .value) { (snapshot) in
+            let students = snapshot.value as! [String:String]
+            for (k,v) in students{
+                print(k,v)
+                let s = Student(name: k, id: v)
+                self.building?.rooms![self.currRoomIndex].roommates?.append(s)
+            }
+            print(self.building?.rooms![self.currRoomIndex].roommates?.count)
+            //self.performSegue(withIdentifier: "goToStudentsTV", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToStudentsTV"{
+            let destinationVC = segue.destination as! StudentTableViewController
+            destinationVC.currRoomIndex = currRoomIndex
+            destinationVC.building = building
+        }
+    }
+    
     @IBAction func logOut(_ sender: Any) {
         do{
             try Auth.auth().signOut()

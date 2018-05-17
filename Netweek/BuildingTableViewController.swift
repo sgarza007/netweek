@@ -11,11 +11,18 @@ import Firebase
 
 class BuildingTableViewController: UITableViewController {
     
-    var buildingNames = ["Camino","Maher","Founders","MissionsA","MissionsB","SAPS","Manchester","Vistas"]
+    var buildingNames = ["Camino Hall","Maher Hall","Founders","MissionsA","MissionsB","SAPS","Manchester","Vistas"]
     var buildings = [Building]()
+    var rooms = [Room]()
+    var currBuilding : String?
+    var currIndex = -1
+    var callDBFlag = 0
+    var dispatchGroup = DispatchGroup()
+    var dispatchGroup2 = DispatchGroup()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        rooms.removeAll()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,6 +30,9 @@ class BuildingTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         initNames()
+        
+        let myNib = UINib(nibName: "BuildingTableViewCell", bundle: nil)
+        tableView.register(myNib, forCellReuseIdentifier: "customBuildingCell")
     }
     
     func initNames(){
@@ -45,22 +55,60 @@ class BuildingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "buildingCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customBuildingCell", for: indexPath)
+        //cell.buildingName.text = buildingNames[indexPath.row]
+        //cell.buildingImage.image = UIImage(named: buildings[indexPath.row].buildingName)
         cell.textLabel?.text = buildingNames[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        retriveBuildingData(forBuilding: buildingNames[indexPath.row])
+        if callDBFlag == 0{
+            retriveBuildingData(forBuilding: buildingNames[indexPath.row], atIndex: indexPath.row)
+        } else {
+            currIndex = indexPath.row
+            performSegue(withIdentifier: "goToRooms", sender: self)
+        }
     }
     
-    func retriveBuildingData(forBuilding : String){
-        print(forBuilding)
+    func retriveBuildingData(forBuilding : String, atIndex : Int){
+        currBuilding = forBuilding
+        currIndex = atIndex
         let netweekDB = Database.database().reference().child(forBuilding)
+        //self.dispatchGroup.enter()
         netweekDB.observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot)
+            let value = snapshot.value as! [String:Any]
+            for (key,_) in value{
+                self.dispatchGroup.enter()
+                let room = Room(roomNumber: key)
+                //get and create student objects from DB
+                let roomsDB = netweekDB.child(key)
+                roomsDB.observeSingleEvent(of: .value, with: { (roomSnapshot) in
+                    let studentValue = roomSnapshot.value as! [String:Any]
+                    for (studentName,studentID) in studentValue{
+                        room.roommates?.append(Student(name: studentName, id: studentID as! String))
+                    }
+                    self.rooms.append(room)
+                })
+                self.dispatchGroup.leave()
+            }
+            self.dispatchGroup.notify(queue: .main, execute: {
+                self.buildings[atIndex].buildingName = forBuilding
+                self.buildings[atIndex].rooms = self.rooms
+                self.performSegue(withIdentifier: "goToRooms", sender: self)
+            })
         }
-        //print(netweekDB )
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRooms"{
+            let destinationVC = segue.destination as! RoomTableViewController
+            destinationVC.building = buildings[currIndex]
+            destinationVC.tableView.reloadData()
+            rooms.removeAll()
+        }
     }
     
     

@@ -9,4 +9,9 @@
 import Foundation
 class Room{
     var roommates : [Student]?
+    var roomNum : String?
+    var status = false
+    init(roomNumber: String) {
+        self.roomNum = roomNumber
+    }
 }
